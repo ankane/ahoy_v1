@@ -13,6 +13,9 @@ describe "ahoy", ->
     it "direct", ->
       checkSource "", "(direct)", "(direct)"
 
+    it "referral", ->
+      checkSource "http://www.example.org", "example.org", "referral"
+
     it "google organic", ->
       checkSource "http://www.google.com/?q=test", "google.com", "search", "test"
 
