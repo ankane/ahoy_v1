@@ -16,6 +16,9 @@ paid_search = (query_param) ->
   (uri) ->
     {"name": uri.host, "category": "paid search", "extra": uri.params[query_param]}
 
+ad = (uri) ->
+  {"name": uri.host, "category": "ad"}
+
 # services
 
 google = (uri) ->
@@ -31,6 +34,7 @@ facebook = (uri) ->
     website uri
 
 doubleclick = (uri) ->
-  url = uri.queryKey["url"]
+  url = uri.params["url"]
   ad_uri = URI.parse url
-  data = ad_network(ad_uri, "DoubleClick")
+  source = ad ad_uri
+  source.extra = "doubleclick"
