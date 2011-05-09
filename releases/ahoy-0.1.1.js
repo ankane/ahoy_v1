@@ -1,5 +1,5 @@
 (function() {
-  var ahoy, direct, doubleclick, facebook, google, paid_search, root, search, website;
+  var ad, ahoy, direct, doubleclick, facebook, google, paid_search, root, search, website;
   ahoy = {
     options: {
       cookieName: "ahoy",
@@ -118,6 +118,12 @@
       };
     };
   };
+  ad = function(uri) {
+    return {
+      "name": uri.host,
+      "category": "ad"
+    };
+  };
   google = function(uri) {
     if (uri.path === "/aclk") {
       return paid_search("q")(uri);
@@ -133,10 +139,12 @@
     }
   };
   doubleclick = function(uri) {
-    var ad_uri, data, url;
-    url = uri.queryKey["url"];
-    ad_uri = URI.parse(url);
-    return data = ad_network(ad_uri, "DoubleClick");
+    var ad_uri, source, url;
+    url = uri.params["url"];
+    ad_uri = ahoy.URI.parse(url);
+    source = ad(ad_uri);
+    source.extra = "doubleclick";
+    return source;
   };
   ahoy.hosts = {
     "(direct)": direct,

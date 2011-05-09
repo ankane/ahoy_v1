@@ -6,8 +6,8 @@ Ahoy is a lightweight javascript library that tracks how visitors arrive at your
 
 1. Download the latest version.
 
-  - [Production (4KB minified)](https://github.com/ankane/ahoy/raw/master/releases/ahoy-0.1.0.min.js)
-  - [Development](https://github.com/ankane/ahoy/raw/master/releases/ahoy-0.1.0.js)
+  - [Production (4KB minified)](https://github.com/ankane/ahoy/raw/master/releases/ahoy-0.1.1.min.js)
+  - [Development](https://github.com/ankane/ahoy/raw/master/releases/ahoy-0.1.1.js)
 
 2. Add the following code right before the `</body>` tag.
 
