@@ -10,7 +10,7 @@ ahoy =
 
     source = this.getSourceFromCookie cookieName
 
-    unless source? and false
+    unless source?
       source = this.parseQuery window.location.href
       source ?= this.parseReferrer document.referrer
       this.Cookie.set cookieName, this.JSON.stringify(source)
