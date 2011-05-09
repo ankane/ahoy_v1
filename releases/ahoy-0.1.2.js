@@ -10,7 +10,7 @@
       cookieName = this.options.cookieName;
       callback = this.options.onArrival;
       source = this.getSourceFromCookie(cookieName);
-      if (!((source != null) && false)) {
+      if (source == null) {
         source = this.parseQuery(window.location.href);
                 if (source != null) {
           source;
