@@ -35,6 +35,7 @@ facebook = (uri) ->
 
 doubleclick = (uri) ->
   url = uri.params["url"]
-  ad_uri = URI.parse url
+  ad_uri = ahoy.URI.parse url
   source = ad ad_uri
   source.extra = "doubleclick"
+  source
