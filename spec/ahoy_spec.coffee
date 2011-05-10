@@ -33,3 +33,8 @@ describe "ahoy", ->
 
     it "doubleclick", ->
       checkSource "http://googleads.g.doubleclick.net/pagead/ads?url=http%3A//www.example.org", "example.org", "ad", "doubleclick ad"
+
+  it "should add a host", ->
+    ahoy.addHost "news.ycombinator.com", ->
+      {"site": "hackernews", "category": "news"}
+    checkSource "http://news.ycombinator.com", "hackernews", "news"

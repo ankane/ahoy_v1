@@ -48,7 +48,7 @@ $source = parse_json($_COOKIES["ahoy"]);
 
 Super simple! Ahoy works with any language that can read cookies and parse JSON.
 
-# Fast, easy install
+# Install
 
 1. Download the latest version.
 
@@ -60,7 +60,32 @@ Super simple! Ahoy works with any language that can read cookies and parse JSON.
 ```html
 <script type="text/javascript" src="ahoy-0.1.2.min.js"></script>
 <script type="text/javascript">
-ahoy.matey()
+ahoy.matey();
+</script>
+```
+
+# Customize
+
+Ahoy was built to be highly customizable.  Here are a few of the things you can do:
+
+```html
+<script type="text/javascript">
+// change the cookie name
+ahoy.cookieName("trafficSource");
+
+// fire callback when a visitor first arrives
+ahoy.onArrival( function(source) {
+  console.log(source);
+});
+
+// add a custom host so traffic arriving from
+// news.ycombinator.com appears as "hackernews"
+ahoy.addHost("news.ycombinator.com", function() {
+  return {"site": "hackernews", "category": "news"};
+});
+
+// call this last
+ahoy.matey();
 </script>
 ```
 

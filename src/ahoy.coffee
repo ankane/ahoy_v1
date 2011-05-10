@@ -25,6 +25,9 @@ ahoy =
   onArrival: (callback) ->
     this.options.onArrival = callback
 
+  addHost: (host, matcher) ->
+    this.hosts[host] = matcher
+
   getSourceFromCookie: (name) ->
     if cookie = this.Cookie.get name
       try
