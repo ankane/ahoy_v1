@@ -1,23 +1,23 @@
 # standard
 
 direct = ->
-  {"name": "(direct)", "category": "(direct)"}
+  {"site": "(direct)", "category": "(direct)"}
 
 website = (uri) ->
-  {"name": uri.host, "category": "referral"}
+  {"category": "referral"}
 
 # helpers
 
 search = (query_param) ->
   (uri) ->
-    {"name": uri.host, "category": "search", "extra": uri.params[query_param]}
+    {"category": "search", "info": "query > #{uri.params[query_param]}"}
 
 paid_search = (query_param) ->
   (uri) ->
-    {"name": uri.host, "category": "paid search", "extra": uri.params[query_param]}
+    {"category": "paid search", "info": "query > #{uri.params[query_param]}"}
 
 ad = (uri) ->
-  {"name": uri.host, "category": "ad"}
+  {"category": "ad"}
 
 # services
 
@@ -37,5 +37,6 @@ doubleclick = (uri) ->
   url = uri.params["url"]
   ad_uri = ahoy.URI.parse url
   source = ad ad_uri
-  source.extra = "doubleclick"
+  source.site = ad_uri.shortHost
+  source.info = "doubleclick ad"
   source

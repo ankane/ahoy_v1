@@ -23,17 +23,17 @@ ahoy.URI =
     )
 
     # strip www
-    uri.host =
-    if uri.fullHost.substring(0, 4) == "www."
-      uri.fullHost.substring(4)
+    uri.shortHost =
+    if uri.host.substring(0, 4) == "www."
+      uri.host.substring(4)
     else
-      uri.fullHost
+      uri.host
 
     uri
 
   options:
     strictMode: false
-    key: ["source","protocol","authority","userInfo","user","password","fullHost","port","relative","path","directory","file","query","anchor"]
+    key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"]
     q:
       name:   "params",
       parser: /(?:^|&)([^&=]*)=?([^&]*)/g

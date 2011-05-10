@@ -56,9 +56,11 @@ ahoy =
       this.matchHost(["(direct)"])
     else
       uri = this.URI.parse url
-      hostsToCheck = this.getHostsToCheck(uri.fullHost)
+      hostsToCheck = this.getHostsToCheck(uri.host)
       this.matchHost(hostsToCheck, uri)
 
+    data.site ?= uri.shortHost
+    data.info ?= null
     data.referrer = url
     data.arrived_at = (new Date).toString()
     data
