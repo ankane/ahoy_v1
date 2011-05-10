@@ -8,7 +8,7 @@ Similar, except you see how specific visitors arrived at your site. You can then
 
 - monthly revenue
 - sign ups
-- length of time before upgrading
+- conversion rates
 
 and any other metrics you desire.
 
