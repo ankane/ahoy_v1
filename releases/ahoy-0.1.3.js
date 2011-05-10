@@ -31,6 +31,9 @@
     onArrival: function(callback) {
       return this.options.onArrival = callback;
     },
+    addHost: function(host, matcher) {
+      return this.hosts[host] = matcher;
+    },
     getSourceFromCookie: function(name) {
       var cookie;
       if (cookie = this.Cookie.get(name)) {
@@ -64,8 +67,18 @@
       return null;
     },
     parseReferrer: function(url) {
-      var data, hostsToCheck, uri;
-      data = url.length === 0 ? this.matchHost(["(direct)"]) : (uri = this.URI.parse(url), hostsToCheck = this.getHostsToCheck(uri.fullHost), this.matchHost(hostsToCheck, uri));
+      var data, hostsToCheck, uri, _ref, _ref2;
+      data = url.length === 0 ? this.matchHost(["(direct)"]) : (uri = this.URI.parse(url), hostsToCheck = this.getHostsToCheck(uri.host), this.matchHost(hostsToCheck, uri));
+            if ((_ref = data.site) != null) {
+        _ref;
+      } else {
+        data.site = uri.shortHost;
+      };
+            if ((_ref2 = data.info) != null) {
+        _ref2;
+      } else {
+        data.info = null;
+      };
       data.referrer = url;
       data.arrived_at = (new Date).toString();
       return data;
@@ -90,37 +103,33 @@
   root.ahoy = ahoy;
   direct = function() {
     return {
-      "name": "(direct)",
+      "site": "(direct)",
       "category": "(direct)"
     };
   };
   website = function(uri) {
     return {
-      "name": uri.host,
       "category": "referral"
     };
   };
   search = function(query_param) {
     return function(uri) {
       return {
-        "name": uri.host,
         "category": "search",
-        "extra": uri.params[query_param]
+        "info": "query > " + uri.params[query_param]
       };
     };
   };
   paid_search = function(query_param) {
     return function(uri) {
       return {
-        "name": uri.host,
         "category": "paid search",
-        "extra": uri.params[query_param]
+        "info": "query > " + uri.params[query_param]
       };
     };
   };
   ad = function(uri) {
     return {
-      "name": uri.host,
       "category": "ad"
     };
   };
@@ -143,7 +152,8 @@
     url = uri.params["url"];
     ad_uri = ahoy.URI.parse(url);
     source = ad(ad_uri);
-    source.extra = "doubleclick";
+    source.site = ad_uri.shortHost;
+    source.info = "doubleclick ad";
     return source;
   };
   ahoy.hosts = {
@@ -216,12 +226,12 @@
           return uri[o.q.name][$1] = decodeURIComponent($2.replace("+", "%20"));
         }
       });
-      uri.host = uri.fullHost.substring(0, 4) === "www." ? uri.fullHost.substring(4) : uri.fullHost;
+      uri.shortHost = uri.host.substring(0, 4) === "www." ? uri.host.substring(4) : uri.host;
       return uri;
     },
     options: {
       strictMode: false,
-      key: ["source", "protocol", "authority", "userInfo", "user", "password", "fullHost", "port", "relative", "path", "directory", "file", "query", "anchor"],
+      key: ["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"],
       q: {
         name: "params",
         parser: /(?:^|&)([^&=]*)=?([^&]*)/g
