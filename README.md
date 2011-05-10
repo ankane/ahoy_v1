@@ -4,7 +4,7 @@ Ahoy is a lightweight javascript library that tracks how visitors arrive at your
 
 ### Like Google Analytics?
 
-Similar, except you see how specific visitors arrived at your site. You can then measure how each visitor performs __over time - not just the first visit__ - and compare sources on:
+Similar, except you see how specific visitors arrived at your site. You can then measure how each visitor performs __over time - not just the first visit__ - and compare traffic sources on:
 
 - monthly revenue
 - sign ups
@@ -17,7 +17,7 @@ and any other metrics you desire.
 Ahoy turns an ugly HTTP `Referer` header like
 
 ```
-http://www.google.com/url?sa=t&source=web&cd=2&ved=0CCsQFjAB&rct=j&q=test...
+http://www.google.com/url?sa=t&source=web&cd=2&ved=0CCsQFjAB&rct=j&q=parrots&ei=BE7HTZ-LE5PWtQPqkeHqAQ&usg=AFQj...
 ```
 
 into a cookie named `ahoy` that looks like
