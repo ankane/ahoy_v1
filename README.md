@@ -4,7 +4,7 @@ Ahoy is a lightweight javascript library that tracks how visitors arrive at your
 
 ### Like Google Analytics?
 
-Similar, except you see how specific visitors arrived at your site. You can then measure how each visitor performs __over time - not just the first visit__ - and compare sources on
+Similar, except you see how specific visitors arrived at your site. You can then measure how each visitor performs __over time - not just the first visit__ - and compare sources on:
 
 - monthly revenue
 - sign ups
@@ -66,7 +66,7 @@ ahoy.matey();
 
 # Customize
 
-Ahoy was built to be highly customizable.  Here are a few of the things you can do:
+Ahoy was built to be highly customizable.  Here are a few things you can do.
 
 ```html
 <script type="text/javascript">
@@ -93,7 +93,7 @@ ahoy.matey();
 
 Ahoy is written in CoffeeScript. Please report bugs on the [GitHub issue tracker](https://github.com/ankane/ahoy/issues).
 
-If you would like to contribute, first clone the repository
+If you would like to contribute, first clone the repository.
 
 ```
 git@github.com:ankane/ahoy.git
