@@ -26,7 +26,7 @@ into a cookie named `ahoy` that looks like
 {
   "site":         "google.com",
   "category":     "search",
-  "info":         "query > parrots"
+  "info":         "query > parrots",
   "referrer":     "http://www.google.com/url...",
   "arrived_at":   "Mon May 09 2011 19:08:45 GMT-0700 (PDT)"
 }
