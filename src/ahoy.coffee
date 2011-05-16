@@ -13,7 +13,7 @@ ahoy =
     unless source?
       source = this.parseQuery window.location.href
       source ?= this.parseReferrer document.referrer
-      this.Cookie.set cookieName, this.JSON.stringify(source)
+      this.Cookie.set cookieName, this.JSON.stringify(source), 672 # 4 weeks
 
       # fire callback if cookie set successfully set
       if this.Cookie.get cookieName

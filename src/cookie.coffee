@@ -20,10 +20,10 @@ ahoy.Cookie =
     if domain
       cookie.push "domain=" + domain
     if ttl
-      cookie.push this.hoursToExpireDate(ttl)
+      cookie.push "expires=" + this.hoursToExpireDate(ttl)
     if secure
       cookie.push "secure"
-    document.cookie = cookie.join "; "
+    document.cookie = cookie.join ";"
 
   unset: (key) ->
     this.set key, "", -1
