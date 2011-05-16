@@ -17,7 +17,7 @@
         } else {
           source = this.parseReferrer(document.referrer);
         };
-        this.Cookie.set(cookieName, this.JSON.stringify(source));
+        this.Cookie.set(cookieName, this.JSON.stringify(source), 672);
         if (this.Cookie.get(cookieName)) {
           if (callback != null) {
             return callback(source);
@@ -162,12 +162,39 @@
     "www.google.com": google,
     "facebook.com": facebook,
     "g.doubleclick.net": doubleclick,
+    "www.yahoo.com": [search, "p"],
+    "www.msn.com": [search, "q"],
+    "www.bing.com": [search, "q"],
+    "www.baidu.com": [search, "wd"],
     "www.daum.net": [search, "q"],
     "www.eniro.se": [search, "search_word"],
     "www.naver.com": [search, "query"],
-    "www.yahoo.com": [search, "p"],
-    "www.msn.com": [search, "q"],
-    "www.bing.com": [search, "q"]
+    "www.lycos.com": [search, "query"],
+    "www.ask.com": [search, "q"],
+    "www.altavista.com": [search, "q"],
+    "search.netscape.com": [search, "query"],
+    "www.about.com": [search, "terms"],
+    "www.mamma.com": [search, "query"],
+    "www.alltheweb.com": [search, "q"],
+    "www.voila.fr": [search, "rdata"],
+    "search.virgilio.it": [search, "qs"],
+    "www.alice.com": [search, "qs"],
+    "www.yandex.com": [search, "text"],
+    "www.najdi.org.mk": [search, "q"],
+    "www.aol.com": [search, "q"],
+    "www.seznam.cz": [search, "q"],
+    "www.search.com": [search, "q"],
+    "www.wp.pl": [search, "szukaj"],
+    "www.szukacz.pl": [search, "q"],
+    "www.yam.com": [search, "k"],
+    "www.pchome.com": [search, "q"],
+    "www.kvasir.no": [search, "q"],
+    "sesam.no": [search, "q"],
+    "www.ozu.es": [search, "q"],
+    "www.terra.com": [search, "query"],
+    "www.mynet.com": [search, "q"],
+    "www.ekolay.net": [search, "q"],
+    "www.rambler.ru": [search, "words"]
   };
   ahoy.Cookie = {
     get: function(key) {
@@ -189,12 +216,12 @@
         cookie.push("domain=" + domain);
       }
       if (ttl) {
-        cookie.push(this.hoursToExpireDate(ttl));
+        cookie.push("expires=" + this.hoursToExpireDate(ttl));
       }
       if (secure) {
         cookie.push("secure");
       }
-      return document.cookie = cookie.join("; ");
+      return document.cookie = cookie.join(";");
     },
     unset: function(key) {
       return this.set(key, "", -1);
