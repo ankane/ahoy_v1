@@ -32,7 +32,7 @@ into a cookie named `ahoy` that looks like
 }
 ```
 
-When a user signs up, you can read the cookie, parse the JSON, and save it to the database.
+When a visitor signs up, you can read the cookie, parse the JSON, and save the information to your database.
 
 ### Rails
 
@@ -46,7 +46,7 @@ source = JSON.parse(cookies["ahoy"])
 $source = parse_json($_COOKIES["ahoy"]);
 ```
 
-Super simple! Ahoy works with any language that can read cookies and parse JSON.
+Super simple! Ahoy works with any language or framework that can read cookies and parse JSON.
 
 # Install
 
