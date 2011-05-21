@@ -52,13 +52,13 @@ Super simple! Ahoy works with any language or framework that can read cookies an
 
 1. Download the latest version.
 
-  - [Production (4KB minified)](https://github.com/ankane/ahoy/raw/master/releases/ahoy-0.1.4.min.js)
-  - [Development](https://github.com/ankane/ahoy/raw/master/releases/ahoy-0.1.4.js)
+  - [Production (4KB minified)](https://github.com/ankane/ahoy/raw/master/releases/ahoy-0.1.5.min.js)
+  - [Development](https://github.com/ankane/ahoy/raw/master/releases/ahoy-0.1.5.js)
 
 2. Add the following code right before the `</body>` tag.
 
 ```html
-<script type="text/javascript" src="ahoy-0.1.4.min.js"></script>
+<script type="text/javascript" src="ahoy-0.1.5.min.js"></script>
 <script type="text/javascript">
 ahoy.matey();
 </script>

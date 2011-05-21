@@ -275,7 +275,6 @@
       if (typeof data !== "string") {
         return null;
       }
-      data = data.trim();
       if ((typeof window !== "undefined" && window !== null) && (window.JSON != null) && (window.JSON.parse != null)) {
         return window.JSON.parse(data);
       }
