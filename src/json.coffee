@@ -4,8 +4,6 @@ ahoy.JSON =
   parse: (data) ->
     return null if typeof data != "string"
 
-    data = data.trim()
-
     if window? and window.JSON? and window.JSON.parse?
       return window.JSON.parse(data)
 
