@@ -43,7 +43,7 @@ source = JSON.parse(cookies["ahoy"])
 ### PHP
 
 ```php
-$source = parse_json($_COOKIES["ahoy"]);
+$source = json_decode($_COOKIES["ahoy"]);
 ```
 
 Super simple! Ahoy works with any language or framework that can read cookies and parse JSON.
