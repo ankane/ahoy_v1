@@ -96,7 +96,7 @@ Ahoy is written in CoffeeScript. Please report bugs on the [GitHub issue tracker
 If you would like to contribute, first clone the repository.
 
 ```
-git@github.com:ankane/ahoy.git
+git clone git@github.com:ankane/ahoy.git
 cd ahoy
 ```
 
